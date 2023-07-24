@@ -11,6 +11,10 @@ const userModel = new Schema({
   password: {
     type: String,
   },
+  emailVerified:{
+    type:Boolean,
+    default:false
+  }
 });
 
 const UserModel = model("User", userModel);

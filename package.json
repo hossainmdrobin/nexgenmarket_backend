@@ -8,7 +8,8 @@
     "express-validator": "^7.0.1",
     "jsonwebtoken": "^9.0.1",
     "mongoose": "^7.4.0",
-    "nodemailer": "^6.9.4"
+    "nodemailer": "^6.9.4",
+    "uuid": "^9.0.0"
   },
   "name": "multi-server",
   "version": "1.0.0",
