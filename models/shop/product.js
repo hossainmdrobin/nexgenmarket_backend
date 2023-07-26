@@ -25,7 +25,7 @@ const product = new Schema({
       ref: "Review",
     },
   ],
-});
+},{timestamps:true,timeseries:true});
 
 const ProductModel = model("Product", product);
 

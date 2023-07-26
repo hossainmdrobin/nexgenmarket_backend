@@ -19,7 +19,7 @@ const userModel = new Schema({
     type: Schema.Types.ObjectId,
     ref: "User",
   },
-});
+},{timestamps:true,timeseries:true});
 
 const UserModel = model("User", userModel);
 

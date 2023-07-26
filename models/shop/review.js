@@ -10,7 +10,7 @@ const product = new Schema({
     },
     rating:Number,
 
-})
+},{timestamps:true,timeseries:true});
 
 const ProductModel = model("Product", product);
 

@@ -1,4 +1,6 @@
+const UserModel = require("../models/user/user");
 const { fail } = require("../utils/responseFormatter");
+const jwt = require("jsonwebtoken")
 
 exports.isAuth = async (req, res, next) => {
     try {
@@ -16,7 +18,7 @@ exports.isAuth = async (req, res, next) => {
           return res.status(400).json({ message: "Login first" });
         } else {
           const decoded = jwt.verify(token, process.env.JWT_SECRET);
-          req.user = await PersonalDetail.findById(decoded._id)        
+          req.user = await UserModel.findById(decoded._id)           
           if (req.user) {
             return next(); //userProfessionalPackageInfo
           } else {
@@ -24,6 +26,7 @@ exports.isAuth = async (req, res, next) => {
           }
         }
       }catch(e){
+        console.log(e)
         return res.status(500).json(fail(e.message));
       }
 

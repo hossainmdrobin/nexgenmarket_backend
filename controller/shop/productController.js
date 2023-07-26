@@ -2,7 +2,7 @@ const { fail, success } = require("../../utils/responseFormatter");
 const ProductModel = require("./../../models/shop/product");
 exports.addProducts = async (req, res, next) => {
   try {
-    req.body.vendor = req.member._id;
+    req.body.vendor = req.user._id;
     req.body.photos = req.files.image;
     const product = await ProductModel.create(req.body);
     return res.status(200).json(success("Product Uploaded", product));
@@ -21,9 +21,9 @@ exports.getLatestProducts = async (req, res, next) => {
           { subcategory: { $regex: new RegExp(_keyword, "i") } },
         ],
       }
-    : {};
+    : {};    
   try {
-    const products = await ProductModel.find(find)
+    const products = await ProductModel.find(find).sort({"createdAt":-1})
       .skip((_page - 1) * _limit) // Skip the documents on previous pages
       .limit(_limit);
     const total = await ProductModel.countDocuments();

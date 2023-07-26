@@ -35,7 +35,7 @@ const product = new Schema({
 
   
   
-});
+},{timestamps:true,timeseries:true});
 
 const ProductModel = model("Product", product);
 
