@@ -1,9 +1,7 @@
 const nodemailer = require("nodemailer");
 
 const transporter = nodemailer.createTransport({
-  host: "smtp.forwardemail.net",
-  port: 465,
-  secure: true,
+  service: 'gmail',
   auth: {
     user: process.env.EMAIL,
     pass: process.env.APP_PASS,
@@ -11,12 +9,12 @@ const transporter = nodemailer.createTransport({
 });
 
 exports.sendMail = async (receiver, content, subject) => {
-  try {
+  try {  
     await transporter.sendMail({
       from: process.env.EMAIL, // sender address
       to: receiver, // list of receivers
       subject: subject, // Subject line
-      text: "Hello world", // plain text body
+      // text: "Hello world", // plain text body
       html: content, // html body
     });
   } catch (e) {

@@ -15,8 +15,6 @@ exports.otpTemplate = (otpObj) => {
     <div>
         <p style="text-align: center;">Thank you for signing up. Now click The "Verify" button to verify your email</p>
         <div style="text-align: center;"><a  href="${link}">Verify account</a></div>
-
-
     </div>
 </body>
 </html>

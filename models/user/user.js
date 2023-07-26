@@ -11,10 +11,14 @@ const userModel = new Schema({
   password: {
     type: String,
   },
-  emailVerified:{
-    type:Boolean,
-    default:false
-  }
+  emailVerified: {
+    type: Boolean,
+    default: false,
+  },
+  vendorInfo: {
+    type: Schema.Types.ObjectId,
+    ref: "User",
+  },
 });
 
 const UserModel = model("User", userModel);
