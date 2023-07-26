@@ -2,15 +2,18 @@ const { model, Schema } = require("mongoose");
 
 const product = new Schema({
   vendor: {
-    type: Schema.types.ObjectId,
+    type: Schema.Types.ObjectId,
     ref:"User"
   },
   name: {
     type: String,
   },
   photos:[{
-    image:String,
+    path:String,
   }],
+  category:String,
+  subcategory:String,
+  stock:Number,
   description: {
     type: String,
   },
@@ -18,7 +21,7 @@ const product = new Schema({
   discount: Number,
   reviews: [
     {
-      type: Schema.types.ObjectId,
+      type:Schema.Types.ObjectId,
       ref: "Review",
     },
   ],
