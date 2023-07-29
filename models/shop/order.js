@@ -1,13 +1,13 @@
 const { model, Schema } = require("mongoose");
 
-const product = new Schema({
+const order = new Schema({
   user: {
-    type: Schema.types.ObjectId,
+    type: Schema.Types.ObjectId,
     ref: "User",
   },  
   products: [
     {
-      product: { type: Schema.types.ObjectId, ref: "Product" },
+      product: { type: Schema.Types.ObjectId, ref: "Product" },
       quantity: { type: Number },
     },
   ],
@@ -31,12 +31,13 @@ const product = new Schema({
     unionNo:Number,
     address:String,
     landmark:String
-  }
+  },
+  status:String // enum:cancelled,
 
   
   
 },{timestamps:true,timeseries:true});
 
-const ProductModel = model("Product", product);
+const OrderModel = model("Order", order);
 
-module.exports = ProductModel;
+module.exports = OrderModel;

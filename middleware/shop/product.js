@@ -8,7 +8,7 @@ exports.isMyProduct = async(req, res, next) => {
         if(product){
             return next()
         }else{
-            res.status(400).json(fail("You are unauthorized to make change here"));
+            res.status(400).json(fail("You are unauthorized to make change here",400));
         }
     }catch(e){
         res.status(500).json(fail(e.message));
